@@ -105,7 +105,7 @@ const Show = () => {
                                                                 }
                                                             </td>
                                                             <td>
-                                                                <Link to={`/admin/service/edit/${project.id}`} className="btn btn-primary btn-sm mx-2">Edit</Link>
+                                                                <Link to={`/admin/project/edit/${project.id}`} className="btn btn-primary btn-sm mx-2">Edit</Link>
                                                                 <Link to="#" onClick={()=>removeProject(project.id)} className="btn btn-secondary btn-sm">Remove</Link>
                                                             </td>
                                                         </tr>
