@@ -1,64 +1,33 @@
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Footer from "../../Common/Footer"
 import Header from "../../Common/Header"
 import Sidebar from "../../Common/Sidebar"
 import {useForm } from "react-hook-form";
 import { apiUrl, token, fileUrl } from "../../Common/Http"
 import { toast } from "react-toastify";
-import React, { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 
-const Edit = ({placeholder}) => {
+const Create = ({placeholder}) => {
 
-    const editor = useRef(null)
-    const [content, setContent] = useState('')
-    const [project,setProjects]=useState('')
-    const prams= useParams()
+    const editor = useRef(null);
+    const [content, setContent] = useState('');
 
     const config = useMemo(() => ({
         readonly: false,
-        placeholder: placeholder || ''
+        placeholder: placeholder || 'Conntent'
     }),
         [placeholder]
     );
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
-        defaultValues: async () => {
-            const res=await fetch(apiUrl+'project/'+prams.id,
-                {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                        'Authorization': `Bearer ${token()}`
-                    }
-                }
-            )
-
-            const result=await res.json()
-            setContent(result.data.content)
-            setProjects(result.data)
-
-            return {
-                title: result.data.title,
-                slug: result.data.slug,
-                short_description: result.data.short_description,
-                content: result.data.content,
-                construction_type: result.data.construction_type,
-                sector: result.data.sector,
-                location: result.data.location,
-                status: result.data.status
-            }
-        }
-    });
-    
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const onSubmit = async (data) => {
         const newData = {
-            ...data, 'content': content,'imageId':imageId,
+            ...data, 'content': content,'imageId':imageId
         }
-        const res = await fetch(apiUrl + "project/"+prams.id,
+        const res = await fetch(apiUrl + "project",
             {
-                method: "PUT",
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
@@ -75,7 +44,6 @@ const Edit = ({placeholder}) => {
             navigate("/admin/projects")
         } else {
             toast.error(result.message)
-
         }
 
 
@@ -85,7 +53,7 @@ const Edit = ({placeholder}) => {
 
 
     const [imageId, setImageId] = useState(null);
-    const [isDisabled, setIsDisabled] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(false);
 
     const handleFile = async(e) => {
         const formData=new FormData()
@@ -110,7 +78,6 @@ const Edit = ({placeholder}) => {
         }
        
     }
-
     
   return (
     <>
@@ -247,11 +214,7 @@ const Edit = ({placeholder}) => {
                                             <label className="form-label" htmlFor="image">Image</label>
                                             <input type="file" className="form-control" onChange={handleFile} />
                                         </div>
-                                        <div className="pb-3">
-                                            {
-                                                project.image && <img src={fileUrl+'upload/projects/small/'+project.image} alt="" />
-                                            }
-                                        </div>
+                                       
 
                                         <div className="mb-3">
                                             <label className="form-label" htmlFor="">Status</label>
@@ -280,4 +243,4 @@ const Edit = ({placeholder}) => {
   )
 }
 
-export default Edit
+export default Create

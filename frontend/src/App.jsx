@@ -18,6 +18,7 @@ import {default as CreateService} from './components/backend/services/Create'
 import {default as EditService} from './components/backend/services/Edit'
 import {default as ShowProject} from './components/backend/projects/Show'
 import {default as EditProject} from './components/backend/projects/Edit'
+import {default as CreateProject} from './components/backend/projects/Create'
 
 
 function App() {
@@ -64,6 +65,12 @@ function App() {
             <Route path='/admin/projects' element={
             <RequiredAuth>
               <ShowProject/>
+            </RequiredAuth>
+           } />
+
+            <Route path='/admin/project/create' element={
+            <RequiredAuth>
+              <CreateProject/>
             </RequiredAuth>
            } />
 
