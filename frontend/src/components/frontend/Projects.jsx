@@ -1,10 +1,30 @@
 import Footer from "../Common/Footer"
 import Header from "../Common/Header"
 import Hero from "../Common/Hero"
-import ConstructionImg from '../../assets/images/construction2.jpg'
+import { useState, useEffect } from "react"
+import { apiUrl,fileUrl } from "../Common/Http"
+
 
 
 const Projects = () => {
+
+    const [projects, setProjects] = useState([])
+
+    const fetchProjects = async () => {
+
+        const response = await fetch(apiUrl + 'get-projects')
+
+        const result = await response.json()
+
+        setProjects(result.data)
+    }
+
+    useEffect(()=>{
+        fetchProjects()
+    }
+
+    )
+
     return (
         <>
 
@@ -13,7 +33,7 @@ const Projects = () => {
                 <Hero
                     preHeading={'Quality,Integrity,Value.'}
                     heading={'Projects'}
-                    text={'We are dedicated to delivering exceptional construction services,<br> ensuring the highest quality and precision in every project we undertake.'}
+                    text={'We are dedicated to delivering exceptional construction projects,<br> ensuring the highest quality and precision in every projects we undertake.'}
                 />
 
                 <section className='section-3 bg-light py-5'>
@@ -31,29 +51,31 @@ const Projects = () => {
                         </div>
 
                         <div className="row pt-4">
-                            {[...Array(6)].map((_, i) => (
-                                <div className="col-md-4 col-lg-4" key={i}>
-                                    <div className="item">
-                                        <div className="service-image">
-                                            <img src={ConstructionImg} alt="" className="w-100" />
-                                        </div>
-                                        <div className="service-body">
-                                            <div className="service-title">
-                                                <h3>Chittagong Project</h3>
+                            {
+                               projects && projects.map((projects, i) => {
+                                return (
+                                    <div className="col-md-4 col-lg-4" key={i}>
+                                        <div className="item">
+                                            <div className="service-image">
+                                                <img src={`${fileUrl}upload/projects/small/${projects.image}`} alt="" className="w-100" />
                                             </div>
-                                            <div className="service-content">
-                                                <p>
-                                                    Speciality Construction is a leading construction company that
-                                                    specializes in delivering exceptional construction services,
-                                                    ensuring the highest quality and precision in every project we
-                                                    undertake.
-                                                </p>
+                                            <div className="service-body">
+                                                <div className="service-title">
+                                                    <h3>{projects.title}</h3>
+                                                </div>
+                                                <div className="service-content">
+                                                    <p>
+                                                        {projects.short_description}
+                                                    </p>
+                                                </div>
+                                                <a href="" className="btn btn-primary large">Read more</a>
                                             </div>
-                                            <a href="" className="btn btn-primary large">Read more</a>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                )
+                            })
+                            }
+
                         </div>
 
                     </div>

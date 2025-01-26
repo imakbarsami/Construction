@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import BlogImg from '../../assets/images/construction3.jpg'
 import About from '../Common/About';
 import LatestServices from '../Common/LatestServices';
+import Projects from './Projects';
 
 const Home = () => {
 
@@ -122,48 +123,7 @@ const Home = () => {
         </section>
 
         {/* our projects */}
-        <section className='section-3 bg-light py-5'>
-          <div className="container-fluid py-5">
-            <div className="section-header text-center">
-
-              <span>Our Projects</span>
-
-              <h2>Discover our diverse range of Projects</h2>
-
-              <p>
-                Explore our diverse range of projects, each reflecting our commitment to
-                excellence and innovation in construction.
-              </p>
-            </div>
-
-            <div className="row pt-4">
-              {[...Array(4)].map((_, i) => (
-                <div className="col-md-3 col-lg-3" key={i}>
-                  <div className="item">
-                    <div className="service-image">
-                      <img src={ConstructionImg} alt="" className="w-100" />
-                    </div>
-                    <div className="service-body">
-                      <div className="service-title">
-                        <h3>Chittagong Project</h3>
-                      </div>
-                      <div className="service-content">
-                        <p>
-                          Speciality Construction is a leading construction company that
-                          specializes in delivering exceptional construction services,
-                          ensuring the highest quality and precision in every project we
-                          undertake.
-                        </p>
-                      </div>
-                      <a href="" className="btn btn-primary large">Read more</a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </section>
+         <Projects/>
 
        {/* testimonials */}
         <section className='section-5 py-5'>
