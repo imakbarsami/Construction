@@ -2,10 +2,10 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import Footer from "../../Common/Footer"
 import Header from "../../Common/Header"
 import Sidebar from "../../Common/Sidebar"
-import {useForm } from "react-hook-form";
+import {set, useForm } from "react-hook-form";
 import { apiUrl, token, fileUrl } from "../../Common/Http"
 import { toast } from "react-toastify";
-import React, { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 
 const Edit = ({placeholder}) => {
@@ -90,6 +90,7 @@ const Edit = ({placeholder}) => {
     const handleFile = async(e) => {
         const formData=new FormData()
         formData.append('image',e.target.files[0])
+        setIsDisabled(true)
         const res=await fetch(apiUrl+'temp-image',
             {
                 method: "POST",
@@ -104,9 +105,10 @@ const Edit = ({placeholder}) => {
         const result=await res.json()
         if(result.status){
             setImageId(result.data.id)
-          //  setIsDisabled(true)
+           setIsDisabled(false)
         }else{
             toast.error(result.errors.image[0])
+            setIsDisabled(false)
         }
        
     }

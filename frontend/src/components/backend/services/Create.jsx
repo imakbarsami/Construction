@@ -5,7 +5,7 @@ import Sidebar from "../../Common/Sidebar"
 import { useForm } from "react-hook-form";
 import { apiUrl, token } from "../../Common/Http"
 import { toast } from "react-toastify";
-import React, { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 
 
@@ -57,8 +57,11 @@ const Create = (placeholder) => {
     const [isDisabled, setIsDisabled] = useState(false);
 
     const handleFile = async(e) => {
+        
         const formData=new FormData()
         formData.append('image',e.target.files[0])
+        setIsDisabled(true)
+
         const res=await fetch(apiUrl+'temp-image',
             {
                 method: "POST",
@@ -68,14 +71,16 @@ const Create = (placeholder) => {
                 },
                 body: formData
             }
+           
         )
 
         const result=await res.json()
         if(result.status){
             setImageId(result.data.id)
-          //  setIsDisabled(true)
+            setIsDisabled(false)
         }else{
             toast.error(result.errors.image[0])
+            setIsDisabled(false)
         }
        
     }
