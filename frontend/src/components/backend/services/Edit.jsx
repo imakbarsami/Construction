@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 
+
 const Edit = ({placeholder}) => {
 
     const editor = useRef(null)
