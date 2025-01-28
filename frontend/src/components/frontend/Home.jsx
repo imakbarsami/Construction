@@ -1,6 +1,5 @@
 import Footer from '../Common/Footer';
 import Header from '../Common/Header';
-import ConstructionImg from '../../assets/images/construction2.jpg'
 import Icon1 from '../../assets/images/icon-1.svg'
 import Icon2 from '../../assets/images/icon-2.svg'
 import Icon3 from '../../assets/images/icon-3.svg'
@@ -10,8 +9,8 @@ import AvatarImg from '../../assets/images/author-2.jpg'
 import 'swiper/css/pagination';
 import BlogImg from '../../assets/images/construction3.jpg'
 import About from '../Common/About';
-import LatestServices from '../Common/LatestServices';
-import Projects from './Projects';
+import LatestServices from './LatestServices';
+import LatestProjects from './LatestProjects';
 
 const Home = () => {
 
@@ -123,7 +122,7 @@ const Home = () => {
         </section>
 
         {/* our projects */}
-         <Projects/>
+         <LatestProjects/>
 
        {/* testimonials */}
         <section className='section-5 py-5'>

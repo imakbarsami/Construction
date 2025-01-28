@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { apiUrl, fileUrl } from './Http'
+import { apiUrl, fileUrl } from '../Common/Http'
 
 const LatestServices = () => {
 

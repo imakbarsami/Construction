@@ -11,7 +11,17 @@ class ProjectController extends Controller
     public function index(){
 
         $projects=Project::where('status',1)->orderBy('id','desc')->get();
-        
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$projects
+        ]);
+    }
+
+    public function latestProject(Request $request){
+
+        $projects=Project::where('status',1)->orderBy('id','desc')->limit($request->limit)->get();
+
         return response()->json([
             'status'=>true,
             'data'=>$projects

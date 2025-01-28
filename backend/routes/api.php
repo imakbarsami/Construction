@@ -16,6 +16,7 @@ Route::post('/register',[AuthenticationController::class,'register']);
 Route::get('/get-services',[FrontServiceController::class,'index']);
 Route::get('/get-latest-services',[FrontServiceController::class,'latestServices']);
 Route::get('/get-projects',[FrontProjectController::class,'index']);
+Route::get('/get-latest-projects',[FrontProjectController::class,'latestProject']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
    Route::get('/dashboard',[DashboardController::class,'index']);
