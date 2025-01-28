@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function index()
     {
 
-        $services = Service::orderBy('created_at', 'desc')->get();
+        $services = Service::orderBy('update_at', 'desc')->get();
 
         return response()->json([
             'status' => true,

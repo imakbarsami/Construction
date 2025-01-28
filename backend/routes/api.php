@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
@@ -34,6 +35,12 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::put('/project/{id}',[ProjectController::class,'update']);
     Route::get('/project/{id}',[ProjectController::class,'show']);
     Route::delete('/project/{id}',[ProjectController::class,'destroy']);
+
+    //article routes
+    Route::post('/article',[ArticleController::class,'store']);
+    Route::get('/articles',[ArticleController::class,'index']);
+    Route::put('/article/{id}',[ArticleController::class,'update']);
+    Route::delete('/article/{id}',[ArticleController::class,'destroy']);
 
 
    Route::get('/logout',[AuthenticationController::class,'logout']);
