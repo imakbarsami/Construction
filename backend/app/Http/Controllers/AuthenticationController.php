@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class AuthenticationController extends Controller
 {
@@ -17,7 +18,7 @@ class AuthenticationController extends Controller
        ]);
 
        if($validator->passes()){
-            
+
             $credentials=[
                 'email'=>$request->email,
                 'password'=>$request->password
@@ -34,7 +35,7 @@ class AuthenticationController extends Controller
                     'message'=>'Login Successfully',
                     'id' =>$user->id
                 ]);
-   
+
             }else{
                 return response()->json([
                     'status'=>false,
@@ -47,7 +48,7 @@ class AuthenticationController extends Controller
             'status'=>false,
             'errors'=>$validator->errors()
           ]);
-          
+
        }
     }
 
@@ -55,7 +56,7 @@ class AuthenticationController extends Controller
 
         $validator=Validator::make($request->all(),[
                'name'=>'required',
-               'email'=>'required|email|unique:users',
+               'email' => 'required|email:rfc,dns|unique:users',
                'password'=>'required|min:5',
                'confirm_password'=>'required|same:password'
         ]);
@@ -72,7 +73,7 @@ class AuthenticationController extends Controller
                 'message'=>'User Register Successfully'
             ]);
         }else{
-            
+
             return response()->json([
                 'status'=>false,
                 'errors'=>$validator->errors()
