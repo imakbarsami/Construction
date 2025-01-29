@@ -11,6 +11,7 @@ import BlogImg from '../../assets/images/construction3.jpg'
 import About from '../Common/About';
 import LatestServices from './LatestServices';
 import LatestProjects from './LatestProjects';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -32,8 +33,8 @@ const Home = () => {
                 <p>We excel at transforming visions into reality through outstanding craftmanship and precise</p>
 
                 <div className="mt-4">
-                  <a href="" className='btn btn-primary large large'>Contact Now</a>
-                  <a href="" className='btn btn-secondary  large  ms-2'>View Projects</a>
+                  <Link to="/contact-us" className='btn btn-primary large large'>Contact Now</Link>
+                  <Link to="/projects" className='btn btn-secondary  large  ms-2'>View Projects</Link>
                 </div>
 
               </div>
