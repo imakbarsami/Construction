@@ -16,7 +16,7 @@ const Sidebar = () => {
                         <li><Link to="/admin/dashboard">Dashboard</Link></li>
                         <li><Link to="/admin/services">Services</Link></li>
                         <li><Link to="/admin/projects">Projects</Link></li>
-                        <li><Link to="#">Articles</Link></li>
+                        <li><Link to="/admin/articles">Articles</Link></li>
                         <li>
                             <button onClick={logout} className="btn btn-primary mt-4">Logout</button>
                         </li>

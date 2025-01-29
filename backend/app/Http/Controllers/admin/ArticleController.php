@@ -24,6 +24,22 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function show($id){
+        $article=Article::find($id);
+
+        if(!$article){
+            return response()->json([
+                'status'=>false,
+                'message'=>'Article not found'
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$article
+        ]);
+    }
+
 
     public function store(Request $request){
 

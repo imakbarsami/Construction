@@ -2,13 +2,13 @@ import { Link, useNavigate } from "react-router-dom"
 import Footer from "../../Common/Footer"
 import Header from "../../Common/Header"
 import Sidebar from "../../Common/Sidebar"
-import {useForm } from "react-hook-form";
-import { apiUrl, token} from "../../Common/Http"
+import { useForm } from "react-hook-form";
+import { apiUrl, token } from "../../Common/Http"
 import { toast } from "react-toastify";
 import { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 
-const Create = ({placeholder}) => {
+const Create = ({ placeholder }) => {
 
     const editor = useRef(null);
     const [content, setContent] = useState('');
@@ -23,9 +23,9 @@ const Create = ({placeholder}) => {
     const navigate = useNavigate()
     const onSubmit = async (data) => {
         const newData = {
-            ...data, 'content': content,'imageId':imageId
+            ...data, 'content': content, 'imageId': imageId
         }
-        const res = await fetch(apiUrl + "project",
+        const res = await fetch(apiUrl + "article",
             {
                 method: "POST",
                 headers: {
@@ -41,7 +41,7 @@ const Create = ({placeholder}) => {
 
         if (result.status) {
             toast.success(result.message)
-            navigate("/admin/projects")
+            navigate("/admin/articles")
         } else {
             toast.error(result.message)
         }
@@ -55,11 +55,11 @@ const Create = ({placeholder}) => {
     const [imageId, setImageId] = useState(null);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const handleFile = async(e) => {
-        const formData=new FormData()
-        formData.append('image',e.target.files[0])
+    const handleFile = async (e) => {
+        const formData = new FormData()
+        formData.append('image', e.target.files[0])
         setIsDisabled(true)
-        const res=await fetch(apiUrl+'temp-image',
+        const res = await fetch(apiUrl + 'temp-image',
             {
                 method: "POST",
                 headers: {
@@ -70,19 +70,19 @@ const Create = ({placeholder}) => {
             }
         )
 
-        const result=await res.json()
-        if(result.status){
+        const result = await res.json()
+        if (result.status) {
             setImageId(result.data.id)
             setIsDisabled(false)
-        }else{
+        } else {
             toast.error(result.errors.image[0])
             setIsDisabled(false)
         }
-       
+
     }
-    
-  return (
-    <>
+
+    return (
+        <>
             <Header />
 
             <main>
@@ -101,8 +101,8 @@ const Create = ({placeholder}) => {
                             <div className="card border-0 shadow">
                                 <div className="card-body p-4">
                                     <div className="d-flex justify-content-between">
-                                        <h4 className="h5">Project/Create</h4>
-                                        <Link to="/admin/projects" className="btn btn-primary">Back</Link>
+                                        <h4 className="h5">Article/Create</h4>
+                                        <Link to="/admin/articles" className="btn btn-primary">Back</Link>
                                     </div>
                                     <hr />
 
@@ -143,13 +143,19 @@ const Create = ({placeholder}) => {
                                         </div>
 
                                         <div className="mb-3">
-                                            <label className="form-label" htmlFor="shotr_description">Short Description</label>
-                                            <textarea
-                                                placeholder="Short Description"
+                                            <label className="form-label" htmlFor="author">Author</label>
+                                            <input
+                                                placeholder="Author"
                                                 {
-                                                ...register("short_description")
+                                                ...register("author", {
+                                                    required: 'the author field is required'
+                                                })
+
                                                 }
-                                                className="form-control" rows={5}></textarea>
+                                                type="text" className={`form-control ${errors.author && `is-invalid`}`} />
+                                            {
+                                                errors.author && <p className="invalid-feedback">{errors.author?.message}</p>
+                                            }
                                         </div>
 
                                         <div className="mb-3">
@@ -163,60 +169,10 @@ const Create = ({placeholder}) => {
                                         </div>
 
                                         <div className="mb-3">
-                                            <label className="form-label" htmlFor="construction_type">Construction Type</label>
-                                            <input
-                                                placeholder="Construction Type"
-                                                {
-                                                ...register("construction_type", {
-                                                    required: 'the construction type field is required'
-                                                })
-
-                                                }
-                                                type="text" className={`form-control ${errors.construction_type && `is-invalid`}`} />
-                                            {
-                                                errors.construction_type && <p className="invalid-feedback">{errors.construction_type?.message}</p>
-                                            }
-                                        </div>
-
-                                        <div className="mb-3">
-                                            <label className="form-label" htmlFor="sector">Sector</label>
-                                            <input
-                                                placeholder="Sector"
-                                                {
-                                                ...register("sector", {
-                                                    required: 'the sector field is required'
-                                                })
-
-                                                }
-                                                type="text" className={`form-control ${errors.sector && `is-invalid`}`} />
-                                            {
-                                                errors.sector && <p className="invalid-feedback">{errors.sector?.message}</p>
-                                            }
-                                        </div>
-
-                                        <div className="mb-3">
-                                            <label className="form-label" htmlFor="location">Location</label>
-                                            <input
-                                                placeholder="Location"
-                                                {
-                                                ...register("location", {
-                                                    required: 'the location field is required'
-                                                })
-
-                                                }
-                                                type="text" className={`form-control ${errors.location && `is-invalid`}`} />
-                                            {
-                                                errors.location && <p className="invalid-feedback">{errors.location?.message}</p>
-                                            }
-                                        </div>
-
-                                        
-
-                                        <div className="mb-3">
                                             <label className="form-label" htmlFor="image">Image</label>
                                             <input type="file" className="form-control" onChange={handleFile} />
                                         </div>
-                                       
+
 
                                         <div className="mb-3">
                                             <label className="form-label" htmlFor="">Status</label>
@@ -242,7 +198,7 @@ const Create = ({placeholder}) => {
             </main>
             <Footer />
         </>
-  )
+    )
 }
 
 export default Create

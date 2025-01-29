@@ -1,33 +1,61 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Footer from "../../Common/Footer"
 import Header from "../../Common/Header"
 import Sidebar from "../../Common/Sidebar"
-import {useForm } from "react-hook-form";
-import { apiUrl, token} from "../../Common/Http"
+import { useForm } from "react-hook-form";
+import { apiUrl, token, fileUrl } from "../../Common/Http"
 import { toast } from "react-toastify";
 import { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 
-const Create = ({placeholder}) => {
+const Edit = ({placeholder}) => {
 
-    const editor = useRef(null);
-    const [content, setContent] = useState('');
+    const editor = useRef(null)
+    const [content, setContent] = useState('')
+    const [article,setArticle]=useState('')
+    const prams= useParams()
 
     const config = useMemo(() => ({
         readonly: false,
-        placeholder: placeholder || 'Conntent'
+        placeholder: placeholder || ''
     }),
         [placeholder]
     );
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+        defaultValues: async () => {
+            const res=await fetch(apiUrl+'article/'+prams.id,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': `Bearer ${token()}`
+                    }
+                }
+            )
+
+            const result=await res.json()
+            setContent(result.data.content)
+            setArticle(result.data)
+
+            return {
+                title: result.data.title,
+                slug: result.data.slug,
+                author: result.data.author,
+                content: result.data.content,
+                status: result.data.status
+            }
+        }
+    });
+    
     const navigate = useNavigate()
     const onSubmit = async (data) => {
         const newData = {
-            ...data, 'content': content,'imageId':imageId
+            ...data, 'content': content,'imageId':imageId,
         }
-        const res = await fetch(apiUrl + "project",
+        const res = await fetch(apiUrl + "article/"+prams.id,
             {
-                method: "POST",
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
@@ -41,9 +69,10 @@ const Create = ({placeholder}) => {
 
         if (result.status) {
             toast.success(result.message)
-            navigate("/admin/projects")
+            navigate("/admin/articles")
         } else {
             toast.error(result.message)
+
         }
 
 
@@ -53,7 +82,7 @@ const Create = ({placeholder}) => {
 
 
     const [imageId, setImageId] = useState(null);
-    const [isDisabled, setIsDisabled] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false)
 
     const handleFile = async(e) => {
         const formData=new FormData()
@@ -73,13 +102,14 @@ const Create = ({placeholder}) => {
         const result=await res.json()
         if(result.status){
             setImageId(result.data.id)
-            setIsDisabled(false)
+           setIsDisabled(false)
         }else{
             toast.error(result.errors.image[0])
             setIsDisabled(false)
         }
        
     }
+
     
   return (
     <>
@@ -101,8 +131,8 @@ const Create = ({placeholder}) => {
                             <div className="card border-0 shadow">
                                 <div className="card-body p-4">
                                     <div className="d-flex justify-content-between">
-                                        <h4 className="h5">Project/Create</h4>
-                                        <Link to="/admin/projects" className="btn btn-primary">Back</Link>
+                                        <h4 className="h5">Article/Edit</h4>
+                                        <Link to="/admin/articles" className="btn btn-primary">Back</Link>
                                     </div>
                                     <hr />
 
@@ -143,11 +173,11 @@ const Create = ({placeholder}) => {
                                         </div>
 
                                         <div className="mb-3">
-                                            <label className="form-label" htmlFor="shotr_description">Short Description</label>
+                                            <label className="form-label" htmlFor="author">Author</label>
                                             <textarea
-                                                placeholder="Short Description"
+                                                placeholder="Author"
                                                 {
-                                                ...register("short_description")
+                                                ...register("author")
                                                 }
                                                 className="form-control" rows={5}></textarea>
                                         </div>
@@ -163,60 +193,14 @@ const Create = ({placeholder}) => {
                                         </div>
 
                                         <div className="mb-3">
-                                            <label className="form-label" htmlFor="construction_type">Construction Type</label>
-                                            <input
-                                                placeholder="Construction Type"
-                                                {
-                                                ...register("construction_type", {
-                                                    required: 'the construction type field is required'
-                                                })
-
-                                                }
-                                                type="text" className={`form-control ${errors.construction_type && `is-invalid`}`} />
-                                            {
-                                                errors.construction_type && <p className="invalid-feedback">{errors.construction_type?.message}</p>
-                                            }
-                                        </div>
-
-                                        <div className="mb-3">
-                                            <label className="form-label" htmlFor="sector">Sector</label>
-                                            <input
-                                                placeholder="Sector"
-                                                {
-                                                ...register("sector", {
-                                                    required: 'the sector field is required'
-                                                })
-
-                                                }
-                                                type="text" className={`form-control ${errors.sector && `is-invalid`}`} />
-                                            {
-                                                errors.sector && <p className="invalid-feedback">{errors.sector?.message}</p>
-                                            }
-                                        </div>
-
-                                        <div className="mb-3">
-                                            <label className="form-label" htmlFor="location">Location</label>
-                                            <input
-                                                placeholder="Location"
-                                                {
-                                                ...register("location", {
-                                                    required: 'the location field is required'
-                                                })
-
-                                                }
-                                                type="text" className={`form-control ${errors.location && `is-invalid`}`} />
-                                            {
-                                                errors.location && <p className="invalid-feedback">{errors.location?.message}</p>
-                                            }
-                                        </div>
-
-                                        
-
-                                        <div className="mb-3">
                                             <label className="form-label" htmlFor="image">Image</label>
                                             <input type="file" className="form-control" onChange={handleFile} />
                                         </div>
-                                       
+                                        <div className="pb-3">
+                                            {
+                                                article.image && <img src={fileUrl+'upload/articles/small/'+article.image} alt="" />
+                                            }
+                                        </div>
 
                                         <div className="mb-3">
                                             <label className="form-label" htmlFor="">Status</label>
@@ -230,7 +214,7 @@ const Create = ({placeholder}) => {
                                             </select>
                                         </div>
 
-                                        <button disabled={isDisabled} className="btn btn-primary">Submit</button>
+                                        <button disabled={isDisabled} className="btn btn-primary">Update</button>
                                     </form>
 
                                 </div>
@@ -245,4 +229,4 @@ const Create = ({placeholder}) => {
   )
 }
 
-export default Create
+export default Edit

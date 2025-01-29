@@ -19,6 +19,9 @@ import {default as EditService} from './components/backend/services/Edit'
 import {default as ShowProject} from './components/backend/projects/Show'
 import {default as EditProject} from './components/backend/projects/Edit'
 import {default as CreateProject} from './components/backend/projects/Create'
+import {default as ShowArticle} from './components/backend/articles/Show'
+import {default as CreateArticle} from './components/backend/articles/Create'
+import {default as EditArticle} from './components/backend/articles/Edit'
 
 
 
@@ -78,6 +81,24 @@ function App() {
             <Route path='/admin/project/edit/:id' element={
             <RequiredAuth>
               <EditProject/>
+            </RequiredAuth>
+           } />
+
+            <Route path='/admin/articles' element={
+            <RequiredAuth>
+              <ShowArticle/>
+            </RequiredAuth>
+           } />
+
+          <Route path='/admin/article/create' element={
+            <RequiredAuth>
+              <CreateArticle/>
+            </RequiredAuth>
+           } />
+
+          <Route path='/admin/article/edit/:id' element={
+            <RequiredAuth>
+              <EditArticle/>
             </RequiredAuth>
            } />
 
