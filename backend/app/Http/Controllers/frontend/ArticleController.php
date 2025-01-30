@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function getArticles(){
+    public function index(){
 
         $artcles=Article::where('status',1)->orderBy('updated_at','desc')->get();
 
