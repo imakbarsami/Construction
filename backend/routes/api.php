@@ -13,6 +13,7 @@ use App\Http\Controllers\frontend\ArticleController as FrontArticleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 Route::post('/temp-image',[TempImageController::class,'store']);
 Route::post('/authenticate',[AuthenticationController::class,'authenticate']);
 Route::post('/register',[AuthenticationController::class,'register']);
