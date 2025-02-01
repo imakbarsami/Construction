@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\frontend\ServiceController as FrontServiceController;
 use App\Http\Controllers\frontend\ProjectController as FrontProjectController;
 use App\Http\Controllers\frontend\ArticleController as FrontArticleController;
+use App\Http\Controllers\frontend\TestimonialController as FrontTestimonialController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,8 @@ Route::get('/get-projects',[FrontProjectController::class,'index']);
 Route::get('/get-latest-projects',[FrontProjectController::class,'latestProject']);
 Route::get('/get-articles',[FrontArticleController::class,'index']);
 Route::get('/get-latest-articles',[FrontArticleController::class,'latestArticles']);
+Route::get('/get-testimonials',[FrontTestimonialController::class,'index']);
+Route::get('/get-latest-testimonials',[FrontTestimonialController::class,'latestTestimonials']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
    Route::get('/dashboard',[DashboardController::class,'index']);
