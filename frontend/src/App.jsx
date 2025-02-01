@@ -22,6 +22,10 @@ import {default as CreateProject} from './components/backend/projects/Create'
 import {default as ShowArticle} from './components/backend/articles/Show'
 import {default as CreateArticle} from './components/backend/articles/Create'
 import {default as EditArticle} from './components/backend/articles/Edit'
+import {default as ShowTestimonial} from './components/backend/testimonials/Show'
+import {default as CreateTestimonial} from './components/backend/testimonials/Create'
+import {default as EditTestimonial} from './components/backend/testimonials/Edit'
+
 
 function App() {
 
@@ -97,6 +101,24 @@ function App() {
           <Route path='/admin/article/edit/:id' element={
             <RequiredAuth>
               <EditArticle/>
+            </RequiredAuth>
+           } />
+
+            <Route path='/admin/testimonials' element={
+            <RequiredAuth>
+              <ShowTestimonial/>
+            </RequiredAuth>
+           } />
+
+          <Route path='/admin/testimonial/create' element={
+            <RequiredAuth>
+              <CreateTestimonial/>
+            </RequiredAuth>
+           } />
+
+          <Route path='/admin/testimonial/edit/:id' element={
+            <RequiredAuth>
+              <EditTestimonial/>
             </RequiredAuth>
            } />
 
