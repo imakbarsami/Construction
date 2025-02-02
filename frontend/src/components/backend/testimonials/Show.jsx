@@ -72,7 +72,7 @@ const Show = () => {
                                 <div className="card-body p-4">
                                     <div className="d-flex justify-content-between">
                                         <h4 className="h5">Testimonials</h4>
-                                        <Link to="/admin/testimonials/create" className="btn btn-primary">Create</Link>
+                                        <Link to="/admin/testimonial/create" className="btn btn-primary">Create</Link>
                                     </div>
                                     <hr />
 
