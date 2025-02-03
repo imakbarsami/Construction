@@ -5,25 +5,15 @@ import Sidebar from "../../Common/Sidebar"
 import { useForm } from "react-hook-form";
 import { apiUrl, token } from "../../Common/Http"
 import { toast } from "react-toastify";
-import { useState, useRef, useMemo } from 'react';
-import JoditEditor from 'jodit-react';
+import { useState } from "react";
 
 const Create = ({ placeholder }) => {
 
-    const editor = useRef(null);
-    const [content, setContent] = useState('');
-
-    const config = useMemo(() => ({
-        readonly: false,
-        placeholder: placeholder || 'Conntent'
-    }),
-        [placeholder]
-    );
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const onSubmit = async (data) => {
         const newData = {
-            ...data, 'testimonial': content, 'imageId': imageId
+            ...data, 'imageId': imageId
         }
         const res = await fetch(apiUrl + "testimonial",
             {
@@ -108,13 +98,20 @@ const Create = ({ placeholder }) => {
 
                                     <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="mb-3">
-                                            <label className="form-label" htmlFor="content">Content</label>
-                                            <JoditEditor
-                                                ref={editor}
-                                                value={content}
-                                                config={{ placeholder: 'Start typing...' }}
-                                                onBlur={newContent => setContent(newContent)}
-                                            />
+                                            <label className="form-label" htmlFor="testimonial">Testimonial</label>
+                                            <textarea
+                                                placeholder="Testimonial"
+                                                {
+                                                ...register("testimonial",
+                                                    {
+                                                        required: 'the testimonial field is required'
+                                                    }
+                                                )
+                                                }
+                                                className={`form-control ${errors.testimonial && `is-invalid`}`} rows={5}></textarea>
+                                                {
+                                                errors.testimonial && <p className="invalid-feedback">{errors.testimonial?.message}</p>
+                                                }
                                         </div>
 
                                         
@@ -131,6 +128,22 @@ const Create = ({ placeholder }) => {
                                                 type="text" className={`form-control ${errors.citation && `is-invalid`}`} />
                                             {
                                                 errors.citation && <p className="invalid-feedback">{errors.citation?.message}</p>
+                                            }
+                                        </div>
+                                        
+                                        <div className="mb-3">
+                                            <label className="form-label" htmlFor="slug">Designation</label>
+                                            <input
+                                                placeholder="Designation"
+                                                {
+                                                ...register("designaiton", {
+                                                    required: 'the designation field is required'
+                                                })
+
+                                                }
+                                                type="text" className={`form-control ${errors.designaiton && `is-invalid`}`} />
+                                            {
+                                                errors.designaiton && <p className="invalid-feedback">{errors.designaiton?.message}</p>
                                             }
                                         </div>
 

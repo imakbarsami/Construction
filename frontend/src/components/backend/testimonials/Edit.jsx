@@ -5,22 +5,14 @@ import Sidebar from "../../Common/Sidebar"
 import { useForm } from "react-hook-form";
 import { apiUrl, token, fileUrl } from "../../Common/Http"
 import { toast } from "react-toastify";
-import { useState, useRef, useMemo } from 'react';
-import JoditEditor from 'jodit-react';
+import { useState } from "react";
 
 const Edit = ({placeholder}) => {
 
-    const editor = useRef(null)
-    const [content, setContent] = useState('')
+
     const [testimonial,setTestimonial]=useState('')
     const prams= useParams()
 
-    const config = useMemo(() => ({
-        readonly: false,
-        placeholder: placeholder || ''
-    }),
-        [placeholder]
-    );
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         defaultValues: async () => {
             const res=await fetch(apiUrl+'testimonial/'+prams.id,
@@ -35,13 +27,13 @@ const Edit = ({placeholder}) => {
             )
 
             const result=await res.json()
-            setContent(result.data.content)
             setTestimonial(result.data)
 
             return {
                 testimonial: result.data.testimonial,
                 citation: result.data.citation,
-                status: result.data.status
+                status: result.data.status,
+                designaiton: result.data.designaiton,
             }
         }
     });
@@ -49,7 +41,7 @@ const Edit = ({placeholder}) => {
     const navigate = useNavigate()
     const onSubmit = async (data) => {
         const newData = {
-            ...data, 'testimonial': content,'imageId':imageId,
+            ...data, 'imageId':imageId,
         }
         const res = await fetch(apiUrl + "testimonial/"+prams.id,
             {
@@ -136,15 +128,15 @@ const Edit = ({placeholder}) => {
 
                                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                                    {/* <div className="mb-3">
+                                    <div className="mb-3">
                                             <label className="form-label" htmlFor="testimonial">Testimonial</label>
-                                            <JoditEditor
-                                                ref={editor}
-                                                value={testimonial}
-                                                config={{ placeholder: 'Start typing...' }}
-                                                onBlur={newContent => setContent(newContent)}
-                                            />
-                                        </div> */}
+                                            <textarea
+                                                placeholder="Testimonial"
+                                                {
+                                                ...register("testimonial")
+                                                }
+                                                className="form-control" rows={5}></textarea>
+                                        </div>
                                 
                                         <div className="mb-3">
                                             <label className="form-label" htmlFor="citation">Citation</label>
@@ -159,6 +151,22 @@ const Edit = ({placeholder}) => {
                                                 type="text" className={`form-control ${errors.citation && `is-invalid`}`} />
                                             {
                                                 errors.citation && <p className="invalid-feedback">{errors.citation?.message}</p>
+                                            }
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <label className="form-label" htmlFor="slug">Designation</label>
+                                            <input
+                                                placeholder="Designation"
+                                                {
+                                                ...register("designaiton", {
+                                                    required: 'the designation field is required'
+                                                })
+
+                                                }
+                                                type="text" className={`form-control ${errors.designaiton && `is-invalid`}`} />
+                                            {
+                                                errors.designaiton && <p className="invalid-feedback">{errors.designaiton?.message}</p>
                                             }
                                         </div>
 

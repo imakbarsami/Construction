@@ -55,6 +55,7 @@ class TestimonialController extends Controller
         $testimonial=new Testimonial();
         $testimonial->testimonial=$request->testimonial;
         $testimonial->citation=$request->citation;
+        $testimonial->designaiton=$request->designaiton;
 
 
         $imageId = $request->imageId;
@@ -113,9 +114,10 @@ class TestimonialController extends Controller
                 'message'=>$validator->errors()
             ]);
         }
-
+        
         $testimonial->testimonial=$request->testimonial;
         $testimonial->citation=$request->citation;
+        $testimonial->designaiton=$request->designaiton;
 
 
         $imageId = $request->imageId;
