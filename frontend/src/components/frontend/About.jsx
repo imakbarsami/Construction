@@ -5,6 +5,7 @@ import teamMember1 from '../../assets/images/pexels-sindre-fs-1040880.jpg'
 import Hero from '../Common/Hero'
 import Testimonial from "./Testimonial"
 
+
 const About = () => {
   return (
     <>
