@@ -16,7 +16,7 @@ class TestimonialController extends Controller
 
         return response()->json([
             'status'=>true,
-            'testimonials'=>$testimonials
+            'data'=>$testimonials
         ]);
     }
 

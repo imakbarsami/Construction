@@ -3,6 +3,7 @@ import Header from "../Common/Header"
 import { default as AboutNew } from '../Common/About'
 import teamMember1 from '../../assets/images/pexels-sindre-fs-1040880.jpg'
 import Hero from '../Common/Hero'
+import Testimonial from "./Testimonial"
 
 const About = () => {
   return (
@@ -21,7 +22,7 @@ const About = () => {
         <AboutNew />
 
         {/* out team */}
-        <section className="section-8 py-5 bg-light">
+        {/* <section className="section-8 py-5 bg-light">
           <div className="section-header text-center">
 
             <span>Team</span>
@@ -120,7 +121,9 @@ const About = () => {
           </div>
 
 
-        </section>
+        </section> */}
+
+        <Testimonial/>
       </main>
 
       <Footer />
