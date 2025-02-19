@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TempImageController;
@@ -60,6 +61,12 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::put('/testimonial/{id}',[TestimonialController::class,'update']);
     Route::delete('/testimonial/{id}',[TestimonialController::class,'destroy']);
 
+    //member routes
+    Route::post('/member',[MemberController::class,'store']);
+    Route::get('/members',[MemberController::class,'index']);
+    Route::get('/member/{id}',[MemberController::class,'show']);
+    Route::put('/member/{id}',[MemberController::class,'update']);
+    Route::delete('/member/{id}',[MemberController::class,'destroy']);
 
    Route::get('/logout',[AuthenticationController::class,'logout']);
 });
