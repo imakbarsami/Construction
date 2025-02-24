@@ -26,7 +26,7 @@ class MemberController extends Controller
 
         return response()->json([
             'status'=>true,
-            'members'=>$members
+            'data'=>$members
         ]);
 
     }
@@ -100,7 +100,7 @@ class MemberController extends Controller
 
         return response()->json([
             'status'=>true,
-            'member'=>$member
+            'data'=>$member
         ]);
     }
 
