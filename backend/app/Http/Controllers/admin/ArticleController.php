@@ -64,6 +64,7 @@ class ArticleController extends Controller
         $article->slug=Str::slug($request->slug);
         $article->author=$request->author;
         $article->content=$request->content;
+        $article->status=$request->status;
 
         $articleTempImage=TempImage::find($request->imageId);
 
@@ -130,6 +131,7 @@ class ArticleController extends Controller
         $article->slug=Str::slug($request->slug);
         $article->author=$request->author;
         $article->content=$request->content;
+        $article->status=$request->status;
 
         $imageId = $request->imageId;
         $temImage = TempImage::find($imageId);

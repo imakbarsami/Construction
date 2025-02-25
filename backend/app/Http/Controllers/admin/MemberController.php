@@ -77,6 +77,7 @@ class MemberController extends Controller
             'job_title'=>$request->job_title,
             'linkdin_url'=>$request->linkdin_url,
             'image'=>$imageName,
+            'status'=>$request->status,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -160,6 +161,7 @@ class MemberController extends Controller
             'name' => $request->name,
             'job_title' => $request->job_title,
             'linkdin_url' => $request->linkdin_url,
+            'status' => $request->status,
             'image' => $imageName,
             'updated_at' => now()
         ]);

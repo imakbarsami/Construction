@@ -47,6 +47,7 @@ class ProjectController extends Controller
             $project->construction_type=$request->construction_type;
             $project->sector=$request->sector;
             $project->location=$request->location;
+            $project->status=$request->status;
 
 
             $imageId = $request->imageId;
@@ -145,6 +146,7 @@ class ProjectController extends Controller
         $project->construction_type=$request->construction_type;
         $project->sector=$request->sector;
         $project->location=$request->location;
+        $project->status=$request->status;
 
         $imageId = $request->imageId;
         $temImage = TempImage::find($imageId);

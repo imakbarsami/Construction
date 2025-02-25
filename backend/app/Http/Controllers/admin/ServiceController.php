@@ -135,6 +135,7 @@ class ServiceController extends Controller
         $service->slug = Str::slug($request->slug);
         $service->short_description = $request->short_description;
         $service->content = $request->content;
+        $service->status=$request->status;
 
         $imageId = $request->imageId;
 
