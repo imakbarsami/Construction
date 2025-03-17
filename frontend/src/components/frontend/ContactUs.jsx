@@ -66,7 +66,7 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
                                         <h3 className="mt-4">You can write us</h3>
                                         <div><a href="#">mdsamipuc@gmail.com</a> </div>
-                                        <div> <a href="#">mdsami6251@gmail.com</a> </div>
+                                        <div> <a href="#"></a> </div>
 
                                         <h3 className="mt-4">Address</h3>
                                         <div>

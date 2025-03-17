@@ -28,6 +28,7 @@ import { default as EditTestimonial } from './components/backend/testimonials/Ed
 import { default as ShowMember } from './components/backend/members/Show'
 import { default as CreateMember } from './components/backend/members/Create'
 import { default as EditMember } from './components/backend/members/Edit'
+import ServiceDetail from './components/frontend/ServiceDetail'
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path='/projects' element={<Projects />} />
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/service/:id' element={ <ServiceDetail/>} />
           <Route path='/admin/login' element={<Login />} />
           <Route path='/admin/register' element={<Register />} />
 
