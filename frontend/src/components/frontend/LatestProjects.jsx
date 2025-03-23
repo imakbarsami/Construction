@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { apiUrl, fileUrl } from "../Common/Http";
 import { useEffect, useState } from 'react';
 
@@ -52,7 +53,7 @@ const LatestProjects = () => {
                                             {projects.short_description}
                                         </p>
                                     </div>
-                                    <a href="" className="btn btn-primary large">Read more</a>
+                                    <Link to={`/project/${projects.id}`} className="btn btn-primary large">Read more</Link>
                                 </div>
                             </div>
                         </div>
