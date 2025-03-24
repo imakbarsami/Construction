@@ -43,6 +43,7 @@ class TestimonialController extends Controller
         $validator=Validator::make($request->all(),[
             'testimonial'=>'required',
             'citation'=>'required',
+            'rating'=>'required|numeric',
         ]);
 
         if($validator->fails()){
@@ -57,6 +58,7 @@ class TestimonialController extends Controller
         $testimonial->citation=$request->citation;
         $testimonial->designaiton=$request->designaiton;
         $testimonial->status=$request->status;
+        $testimonial->rating=$request->rating;
 
 
         $imageId = $request->imageId;
@@ -107,6 +109,7 @@ class TestimonialController extends Controller
         $validator=Validator::make($request->all(),[
             'testimonial'=>'required',
             'citation'=>'required',
+            'rating'=>'required|numeric',
         ]);
 
         if($validator->fails()){
@@ -120,6 +123,7 @@ class TestimonialController extends Controller
         $testimonial->citation=$request->citation;
         $testimonial->designaiton=$request->designaiton;
         $testimonial->status=$request->status;
+        $testimonial->rating=$request->rating;
 
 
         $imageId = $request->imageId;

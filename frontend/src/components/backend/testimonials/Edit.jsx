@@ -34,6 +34,7 @@ const Edit = ({placeholder}) => {
                 citation: result.data.citation,
                 status: result.data.status,
                 designaiton: result.data.designaiton,
+                rating: result.data.rating,
             }
         }
     });
@@ -180,6 +181,32 @@ const Edit = ({placeholder}) => {
                                                 testimonial.image && <img src={fileUrl+'upload/testimonials/small/'+testimonial.image} alt="" />
                                             }
                                         </div>
+
+                                        <div className="mb-3">
+                                            <label className="form-label" htmlFor="rating">Rating</label>
+                                            <input
+                                                placeholder="Rating"
+                                                {
+                                                ...register("rating", {
+                                                    required: 'the rating field is required',
+                                                    min: {
+                                                        value: 0.5,
+                                                        message: 'minimum value is 0.5'
+                                                    },
+                                                    
+                                                    max: {
+                                                        value: 5,
+                                                        message: 'maximum value is 5'
+                                                    }
+                                                })
+                                            
+                                                }
+                                                type="text" className={`form-control ${errors.rating && `is-invalid`}`} />
+                                            {
+                                                errors.rating && <p className="invalid-feedback">{errors.rating?.message}</p>
+                                            }
+                                        </div>
+                                        
 
                                         <div className="mb-3">
                                             <label className="form-label" htmlFor="">Status</label>
