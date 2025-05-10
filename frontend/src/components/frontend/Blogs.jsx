@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Footer from "../Common/Footer"
 import Header from "../Common/Header"
 import Hero from "../Common/Hero"
@@ -70,7 +71,7 @@ const Blogs = () => {
                                                         }
                                                     </div>
 
-                                                    <a href="" className="btn btn-primary large">Read more</a>
+                                                    <Link to={`/blog/${article.id}`} className="btn btn-primary large">Read more</Link>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,7 +1,31 @@
+import React, { useEffect, useState } from 'react'
+import { apiUrl } from '../Common/Http'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 
     const currentYear = new Date().getFullYear();
+
+
+    const [services,setService] = useState([])
+
+    const fetchService=async()=>{
+        const resp = await fetch(apiUrl + 'get-services',{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const result = await resp.json()
+        setService(result.data)
+    }
+
+
+    useEffect(()=>
+    {
+      fetchService()
+    }
+    )
   return (
     <footer>
          <div className="container py-5">
@@ -22,26 +46,16 @@ const Footer = () => {
               <h3 className='mb-3'>Our Services</h3>
               <ul>
 
-                <li>
-                  <a href="">Speciality Construction</a>
-                </li>
-
-                <li>
-                  <a href="">Civil Construction</a>
-                </li>
-
-                <li>
-                  <a href="">Residential Construction</a>
-                </li>
-
-                <li>
-                  <a href="">Corporate Construction</a>
-                </li>
-
-                <li>
-                  <a href="">Industrial Construction</a>
-                </li>
-
+                {
+                  services && services.map((service, i) => {
+                    return (
+                      <li key={i}>
+                        <Link to={`/service/${service.id}`}>{service.title}</Link>
+                      </li>
+                    )
+                  })
+                }
+                
               </ul>
             </div>
             
@@ -50,23 +64,23 @@ const Footer = () => {
                 <ul>
 
                   <li>
-                    <a href="">About Us</a>
+                    <Link to={'/about'}>About Us</Link>
                   </li>
 
                   <li>
-                    <a href="">Services</a>
+                  <Link to={'/services'}>Services</Link>
                   </li>
 
                   <li>
-                    <a href="">Projects</a>
+                  <Link to={'/projects'}>Projects</Link>
                   </li>
 
                   <li>
-                    <a href="">Blog</a>
+                  <Link to={'/blogs'}>Blogs</Link>
                   </li>
                   
                   <li>
-                    <a href="">Contact Us</a>
+                  <Link to={'/contact-us'}>Contact Us</Link>
                   </li>
                   
                 </ul>

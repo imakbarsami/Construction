@@ -30,6 +30,7 @@ import { default as CreateMember } from './components/backend/members/Create'
 import { default as EditMember } from './components/backend/members/Edit'
 import ServiceDetail from './components/frontend/ServiceDetail'
 import ProjectDetails from './components/frontend/ProjectDetails'
+import BlogDetails from './components/frontend/BlogDetails'
 
 
 
@@ -48,6 +49,7 @@ function App() {
           <Route path='/contact-us' element={<ContactUs />} />
           <Route path='/service/:id' element={ <ServiceDetail/>} />
           <Route path='/project/:id' element={ <ProjectDetails/>} />
+          <Route path='/blog/:id' element={ <BlogDetails/>} />
           <Route path='/admin/login' element={<Login />} />
           <Route path='/admin/register' element={<Register />} />
 

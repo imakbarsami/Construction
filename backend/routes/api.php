@@ -31,6 +31,7 @@ Route::get('/get-latest-testimonials',[FrontTestimonialController::class,'latest
 Route::post('/contact-me',[ContactController::class,'storeContact']);
 Route::get('/get-service/{id}',[FrontServiceController::class,'serviceDetails']);
 Route::get('/get-project/{id}',[FrontProjectController::class,'projectDetails']);
+Route::get('/get-article/{id}',[FrontArticleController::class,'articleDetails']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
    Route::get('/dashboard',[DashboardController::class,'index']);
