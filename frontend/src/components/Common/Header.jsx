@@ -8,7 +8,7 @@ const Header = () => {
           <Navbar expand="lg">
             <Navbar.Brand href="/" className='logo'>
               <span>
-                UrbanEdge </span>Construction</Navbar.Brand>
+              Elevate </span>Works</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">

@@ -40,8 +40,7 @@ const Services = () => {
                             <h2>Our Construction Services</h2>
 
                             <p>
-                                We offer a diverse array of construction services,spanning residential,
-                                commercial and industrial projects.
+                            Delivering expert construction solutions across residential, commercial, and industrial projects with precision and reliability.
                             </p>
                         </div>
 

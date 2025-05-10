@@ -40,11 +40,10 @@ const Blogs = () => {
 
                             <span>Blogs & News</span>
 
-                            <h2>Article & Blog posts</h2>
+                            <h2>Insights,Updates and Industry Trends</h2>
 
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-                            </p>
+                            Stay informed with the latest updates from ElevateWorks. From construction tips and project highlights to industry trends and sustainability insightswe share valuable knowledge to keep you inspired and informed.                            </p>
                         </div>
 
                         <div className="row pt-4">

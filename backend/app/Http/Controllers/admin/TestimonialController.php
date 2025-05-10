@@ -184,6 +184,10 @@ class TestimonialController extends Controller
         }
 
         $testimonial->delete();
+        if($testimonial->image){
+            File::delete(public_path('upload/testimonials/small/'.$testimonial->image));
+            File::delete(public_path('upload/testimonials/large/'.$testimonial->image));
+        }
         return response()->json([
             'status'=>true,
             'message'=>'Testimonial deleted successfully'

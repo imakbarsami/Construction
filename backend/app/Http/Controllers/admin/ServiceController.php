@@ -194,6 +194,11 @@ class ServiceController extends Controller
         }
 
         $service->delete();
+        if ($service->image) {
+            File::delete(public_path('upload/services/small/' . $service->image));
+            File::delete(public_path('upload/services/large/' . $service->image));
+        }
+        
         return response()->json([
             'status' => true,
             'message' => 'Service Deleted Successfully'

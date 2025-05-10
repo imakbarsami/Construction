@@ -190,6 +190,10 @@ class MemberController extends Controller
         }
 
         DB::table('members')->where('id', $id)->delete();
+        if($member->image){
+            File::delete(public_path('upload/members/small/'.$member->image));
+            File::delete(public_path('upload/members/large/'.$member->image));
+        }
 
         return response()->json([
             'status'=>true,

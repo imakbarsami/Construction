@@ -61,8 +61,8 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
                                 <div className="card shadow border-0 mb-3">
                                     <div className="card-body p-4">
                                         <h3 className="mt-4">Call Us</h3>
-                                        <div><a href="#">{+8801720423399}</a></div>
-                                        <div><a href="#">{+8801857035320}</a></div>
+                                        <div><a href="#">+880 12345678</a></div>
+                                        
 
                                         <h3 className="mt-4">You can write us</h3>
                                         <div><a href="#">mdsamipuc@gmail.com</a> </div>
@@ -70,9 +70,9 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
                                         <h3 className="mt-4">Address</h3>
                                         <div>
-                                            B-18X , 1st Floor, Mirpur-10, Dhaka-1216 <br />
-                                            Dhaka Bangladesh <br />
-                                            880 01720423399
+                                            Quaish,Hathazari <br />
+                                            Chittagong Bangladesh <br />
+                                            +880 12345678
                                         </div>
 
                                     </div>

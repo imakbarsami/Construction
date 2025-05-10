@@ -23,11 +23,12 @@ const Home = () => {
             <div className="container-fluid">
               <div className="text-center">
                 <span>
-                  Welcome Amazing Constructions
+                  Welcome to ElevateWorks
                 </span>
 
-                <h1>Crafting dreams with <br /> precision and excellence.</h1>
-                <p>We excel at transforming visions into reality through outstanding craftmanship and precise</p>
+                <h1>Building tomorrow’s<br /> foundations today.</h1>
+                <p>We bring your vision to life with precision, passion, and innovation. <br/>
+                From concept to completion, our craftsmanship raises every project above the ordinary.</p>
 
                 <div className="mt-4">
                   <Link to="/contact-us" className='btn btn-primary large large'>Contact Now</Link>
@@ -53,14 +54,13 @@ const Home = () => {
               <span>Why Choose Us</span>
 
               <h2>
-                Discover our diverse range of Projects
+              Building with Purpose, Delivering with Precision
               </h2>
 
               <p>
-                Created with precision and passion, our construction company is dedicated to
-                delivering exceptional results and exceeding expectations. <br />
-                We are committed to delivering exceptional results and exceeding
-                expectations.
+              At ElevateWorks, we go beyond bricks and blueprints. Our projects are driven by a deep commitment 
+              to quality, innovation, and client satisfaction. With a team of skilled professionals and a passion
+              for excellence, we ensure every structure is built to last—and built to impress.
               </p>
             </div>
             <div className="row pt-4">
@@ -71,11 +71,9 @@ const Home = () => {
                     <img src={Icon1} alt="" />
                   </div>
                   <div className='card-title mt-3'>
-                    <h3>Quality Craftmanship</h3>
+                    <h3>Exceptional Craftsmanship</h3>
                     <p>
-                      We are dedicated to delivering exceptional construction services,
-                      ensuring the highest quality and precision in every project we
-                      undertake.
+                    We combine expert techniques with attention to detail to deliver flawless construction results every time.
                     </p>
                   </div>
                 </div>
@@ -87,11 +85,9 @@ const Home = () => {
                     <img src={Icon2} alt="" />
                   </div>
                   <div className='card-title mt-3'>
-                    <h3>Quality Craftmanship</h3>
+                    <h3>Experienced Team</h3>
                     <p>
-                      We are dedicated to delivering exceptional construction services,
-                      ensuring the highest quality and precision in every project we
-                      undertake.
+                    Our professionals bring years of hands on experience, ensuring your project is managed with confidence and clarity.
                     </p>
                   </div>
                 </div>
@@ -104,11 +100,9 @@ const Home = () => {
                     <img src={Icon3} alt="" />
                   </div>
                   <div className='card-title mt-3'>
-                    <h3>Quality Craftmanship</h3>
+                    <h3>Sustainable Practices</h3>
                     <p>
-                      We are dedicated to delivering exceptional construction services,
-                      ensuring the highest quality and precision in every project we
-                      undertake.
+                    From materials to methods, we prioritize eco-friendly solutions that reduce impact and boost long-term value.
                     </p>
                   </div>
                 </div>

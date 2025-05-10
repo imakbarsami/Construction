@@ -192,6 +192,10 @@ class ArticleController extends Controller
         }
 
         $article->delete();
+        if($article->image){
+            File::delete(public_path('upload/articles/small/'.$article->image));
+            File::delete(public_path('upload/articles/large/'.$article->image));
+        }
         return response()->json([
             'status'=>true,
             'message'=>'Article deleted successfully'

@@ -208,6 +208,10 @@ class ProjectController extends Controller
         }
 
         $project->delete();
+        if($project->image){
+            File::delete(public_path('upload/projects/small/'.$project->image));
+            File::delete(public_path('upload/projects/large/'.$project->image));
+        }
 
         return response()->json([
             'status'=>true,

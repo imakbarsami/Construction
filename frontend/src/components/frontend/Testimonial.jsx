@@ -29,7 +29,7 @@ const Testimonial = () => {
                 <div className="text-center mb-5">
                     <h5 className="text-dark text-uppercase fw-bold">Testimonials</h5>
                     <h2 className="fw-bold">What People Say About Us</h2>
-                    <p className="text-muted">
+                    <p className="text-dark">
                         Our customers' testimonials speak volumes about our commitment to excellence.
                     </p>
                 </div>

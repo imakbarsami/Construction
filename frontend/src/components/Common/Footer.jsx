@@ -24,7 +24,7 @@ const Footer = () => {
     useEffect(()=>
     {
       fetchService()
-    }
+    },[]
     )
   return (
     <footer>
@@ -32,12 +32,12 @@ const Footer = () => {
            <div className="row">
 
              <div className="col-md-3">
-               <h3 className='mb-3'>Urban Constructions</h3>
+               <h3 className='mb-3'>ElevateWorks</h3>
               <div className="pe-5">
                 <p>
-                  We are a leading construction company dedicated to delivering exceptional
-                  projects that stand the test of time. With a passion for excellence and a
-                  commitment to quality, we transform visions into reality.
+                We are a forward-thinking construction company committed to building lasting structures with precision, 
+                innovation, and care. At ElevateWorks, we turn ideas into enduring realities shaping spaces that inspire 
+                and stand strong for generations.
                 </p>
               </div>
             </div>
@@ -68,6 +68,10 @@ const Footer = () => {
                   </li>
 
                   <li>
+                  <Link to={'/contact-us'}>Contact Us</Link>
+                  </li>
+
+                  <li>
                   <Link to={'/services'}>Services</Link>
                   </li>
 
@@ -79,9 +83,7 @@ const Footer = () => {
                   <Link to={'/blogs'}>Blogs</Link>
                   </li>
                   
-                  <li>
-                  <Link to={'/contact-us'}>Contact Us</Link>
-                  </li>
+                 
                   
                 </ul>
             </div>
@@ -90,7 +92,7 @@ const Footer = () => {
               <h3 className='mb-3'>Contact Us</h3>
                <ul>
                 <li>
-                  <a href="">(+880 1720423399)</a>
+                  <a href="">+880 12345678</a>
                 </li>
 
                 <li>
@@ -98,14 +100,14 @@ const Footer = () => {
                 </li>
 
                 <p>
-                  Quaish, 12345<br/>
-                  Chittagong, Bangladesh<br/>
+                  Quaish,Hathazari<br/>
+                  Chittagong,Bangladesh<br/>
                 </p>
                </ul>
             </div> 
             <hr />
             <div className='text-center pt-4'>
-              Copyright ©{currentYear} Urban Constructions. All Rights Reserved.
+              Copyright ©{currentYear} ElevateWorks. All Rights Reserved.
             </div>
             </div>
          </div>
