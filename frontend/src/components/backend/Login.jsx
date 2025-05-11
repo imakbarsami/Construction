@@ -21,7 +21,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
-        const response = await fetch(apiUrl+"api/authenticate", {
+        const response = await fetch(apiUrl+"authenticate", {
 
             method: "POST",
             headers: {
