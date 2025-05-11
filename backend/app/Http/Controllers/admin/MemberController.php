@@ -130,7 +130,7 @@ class MemberController extends Controller
         }
 
         $imageId=$request->imageId;
-        $imageName='';
+        $imageName=$member->image;
 
         $memberTempImage=DB::table('temp_images')->where('id',$imageId)->first();
 
@@ -153,9 +153,16 @@ class MemberController extends Controller
             $image->scaleDown(1200);
             $image->save($destinationPath);
 
+            $oldImage = $member->image;
+
+            if($oldImage){
+                File::delete(public_path('upload/members/small/'.$oldImage));
+                File::delete(public_path('upload/members/large/'.$oldImage));
+            }
+
         }
 
-        $oldImage = $member->image;
+
 
         DB::table('members')->where('id', $id)->update([
             'name' => $request->name,
@@ -166,10 +173,6 @@ class MemberController extends Controller
             'updated_at' => now()
         ]);
 
-        if($oldImage){
-            File::delete(public_path('upload/members/small/'.$oldImage));
-            File::delete(public_path('upload/members/large/'.$oldImage));
-        }
 
         return response()->json([
             'status'=>true,

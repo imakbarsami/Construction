@@ -9,6 +9,7 @@ import LatestProjects from './LatestProjects';
 import { Link } from 'react-router-dom';
 import LatestBlogs from './LatestBlogs';
 import Testimonial from './Testimonial';
+import Teams from './Teams';
 
 const Home = () => {
 
@@ -115,6 +116,9 @@ const Home = () => {
 
         {/* our projects */}
          <LatestProjects/>
+
+         {/* Our Team */}
+         <Teams/>
 
        {/* testimonials */}
         <Testimonial/>

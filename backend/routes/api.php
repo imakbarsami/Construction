@@ -13,6 +13,7 @@ use App\Http\Controllers\frontend\ProjectController as FrontProjectController;
 use App\Http\Controllers\frontend\ArticleController as FrontArticleController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\TestimonialController as FrontTestimonialController;
+use App\Http\Controllers\frontend\MemberController as FrontMemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::post('/contact-me',[ContactController::class,'storeContact']);
 Route::get('/get-service/{id}',[FrontServiceController::class,'serviceDetails']);
 Route::get('/get-project/{id}',[FrontProjectController::class,'projectDetails']);
 Route::get('/get-article/{id}',[FrontArticleController::class,'articleDetails']);
+Route::get('/get-members',[FrontMemberController::class,'index']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
    Route::get('/dashboard',[DashboardController::class,'index']);
