@@ -1,8 +1,11 @@
 
 <body>
     <h1>ElevateWorks</h1>
-    <p>A modern web platform for showcasing construction services, projects, blogs, and testimonials, built with Laravel and React.</p>
-    <p>
+   
+ <p><img src="https://github.com/user-attachments/assets/be9f3e5b-d6be-4885-b06b-e51254fff945" alt="ElevateWorks Banner"></p> <br> <br>
+ <p>A modern web platform for showcasing construction services, projects, blogs, and testimonials, built with Laravel and React.</p>
+
+<p>
         <a href="https://laravel.com"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat&logo=laravel" alt="Laravel"></a>
         <a href="https://reactjs.org"><img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react" alt="React"></a>
         <a href="https://getbootstrap.com"><img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap" alt="Bootstrap"></a>
@@ -11,7 +14,9 @@
 
   <h2>Live Demo</h2>
     <p><a href="https://elevateworks.vercel.app/" target="_blank">Visit ElevateWorks</a></p>
-    <h2>Overview</h2>
+
+    
+<h2>Overview</h2>
     <p>ElevateWorks is a dynamic web application designed for the construction industry, offering a seamless experience for users to explore services, projects, blogs, and testimonials. It features a powerful admin panel for content management and a responsive frontend for engaging visitors. The backend is powered by Laravel, and the frontend is built with React, integrated via RESTful APIs. The contact form uses Gmail SMTP for email integration to handle user inquiries efficiently. Images are processed using Intervention Image, and APIs are tested with Postman.</p>
     <h2>Features</h2>
     <h3>Admin Panel</h3>
