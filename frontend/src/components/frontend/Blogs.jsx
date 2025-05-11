@@ -30,7 +30,7 @@ const Blogs = () => {
 
                     preHeading='Quality,Integrity,Value.'
                     heading='Blogs'
-                    text='We are dedicated to delivering exceptional construction services,<br> ensuring the highest quality and precision in every project we undertake.'
+                    text='Stay informed with expert insights, construction trends, and <br>real project stories crafted to keep you connected with the industry.'
 
                 />
 

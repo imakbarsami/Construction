@@ -41,7 +41,7 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
                 <Hero
                     preHeading='Quality,Integrity,Value.'
                     heading='Contact Us'
-                    text='We are dedicated to delivering exceptional construction services,<br> ensuring the highest quality and precision in every project we undertake.'
+                    text='Have a project in mind or a question? Reach out to us we’re <br>here to bring your vision to life with clarity and commitment.'
                 />
 
                 <section className="section-9 py-5">

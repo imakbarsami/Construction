@@ -34,7 +34,7 @@ const Projects = () => {
                 <Hero
                     preHeading={'Quality,Integrity,Value.'}
                     heading={'Projects'}
-                    text={'We are dedicated to delivering exceptional construction projects,<br> ensuring the highest quality and precision in every projects we undertake.'}
+                    text={'We deliver construction projects that inspire confidence designed <br>with purpose, executed with excellence, and built to endure.'}
                 />
 
                 <section className='section-3 bg-light py-5'>
