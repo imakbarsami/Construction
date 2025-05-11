@@ -17,7 +17,7 @@
 
     
 <h2>Overview</h2>
-    <p>ElevateWorks is a dynamic web application designed for the construction industry, offering a seamless experience for users to explore services, projects, blogs, and testimonials. It features a powerful admin panel for content management and a responsive frontend for engaging visitors. The backend is powered by Laravel, and the frontend is built with React, integrated via RESTful APIs. The contact form uses Gmail SMTP for email integration to handle user inquiries efficiently. Images are processed using Intervention Image, and APIs are tested with Postman.</p>
+    <p>ElevateWorks is a dynamic web application designed for the construction industry, offering a seamless experience for users to explore services, projects, blogs, and testimonials. It features a powerful admin panel for content management and a responsive frontend for engaging visitors. The backend is powered by Laravel, and the frontend is built with React, integrated via APIs. The contact form uses Gmail SMTP for email integration to handle user inquiries efficiently. Images are processed using Intervention Image, and APIs are tested with Postman.</p>
     <h2>Features</h2>
     <h3>Admin Panel</h3>
     <ul>
@@ -38,13 +38,13 @@
     <ul>
         <li><b>backend</b>: Laravel-based, handles API requests, database management, email functionality, and image processing.</li>
         <li><b>frontend</b>: React-based, provides a responsive UI with Bootstrap styling.</li>
-        <li><b>Integration</b>: Frontend and backend communicate via RESTful APIs.</li>
+        <li><b>Integration</b>: Frontend and backend communicate via APIs.</li>
     </ul>
     <h2>Technologies Used</h2>
     <ul>
         <li><b>Backend</b>: Laravel, PHP, MySQL</li>
         <li><b>Frontend</b>: React, JavaScript, Bootstrap</li>
-        <li><b>API</b>: RESTful APIs, tested with Postman</li>
+        <li><b>API</b>: APIs, tested with Postman</li>
         <li><b>Email</b>: Gmail SMTP via Laravel Mail</li>
         <li><b>Image Processing</b>: Intervention Image</li>
         <li><b>Deployment</b>: Vercel for frontend, InfinityFree for backend</li>
