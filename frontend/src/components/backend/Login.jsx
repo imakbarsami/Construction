@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from './context/Auth';
+import { apiUrl } from '../Common/Http';
 
 const Login = () => {
 
@@ -20,7 +21,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
-        const response = await fetch("http://127.0.0.1:8000/api/authenticate", {
+        const response = await fetch(apiUrl+"api/authenticate", {
 
             method: "POST",
             headers: {
