@@ -1,7 +1,6 @@
 import Footer from "../Common/Footer"
 import Header from "../Common/Header"
 import { default as AboutNew } from '../Common/About'
-import teamMember1 from '../../assets/images/pexels-sindre-fs-1040880.jpg'
 import Hero from '../Common/Hero'
 import Testimonial from "./Testimonial"
 

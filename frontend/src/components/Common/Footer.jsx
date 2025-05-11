@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { apiUrl } from '../Common/Http'
 import { Link } from 'react-router-dom';
 

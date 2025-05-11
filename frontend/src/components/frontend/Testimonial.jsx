@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { apiUrl, fileUrl } from '../Common/Http';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
-import defaultPic from '../../assets/images/pexels-sindre-fs-1040880.jpg';
 
 
 const Testimonial = () => {

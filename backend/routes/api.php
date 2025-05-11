@@ -36,6 +36,7 @@ Route::get('/get-article/{id}',[FrontArticleController::class,'articleDetails'])
 Route::get('/get-members',[FrontMemberController::class,'index']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    
    Route::get('/dashboard',[DashboardController::class,'index']);
 
    //service routes
