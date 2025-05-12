@@ -2,8 +2,8 @@
 // export const apiUrl = 'http://localhost:8000/api/'
 // export const fileUrl = 'http://localhost:8000/'
 
-export const apiUrl = "https://elevateworks.wuaze.com/api/"
-export const fileUrl = "https://elevateworks.wuaze.com/"
+export const apiUrl = "https://elevateworks.kesug.com/api/"
+export const fileUrl = "https://elevateworks.kesug.com/"
 
 export const token = () => {
     const userInfo = localStorage.getItem('userInfo')
