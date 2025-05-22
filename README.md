@@ -12,8 +12,6 @@
         <a href="https://www.mysql.com"><img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql" alt="MySQL"></a>
     </p>
 
-  <h2>Live Demo</h2>
-    <p><a href="https://elevateworks.vercel.app/" target="_blank">Visit ElevateWorks</a></p>
 
     
 <h2>Overview</h2>
